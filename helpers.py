@@ -23,7 +23,7 @@ class EpithetGenerator:
         word_1 = random.choice(self.data["Column 1"])
         word_2 = random.choice(self.data["Column 2"])
         word_3 = random.choice(self.data["Column 3"])
-        return "{}, {}, {}".format(word_1, word_2, word_3)
+        return "Thou {} {} {}!".format(word_1, word_2, word_3)
 
     def quantity(self, quantity):
         epithets = {}
@@ -31,7 +31,7 @@ class EpithetGenerator:
             word_1 = random.choice(self.data["Column 1"])
             word_2 = random.choice(self.data["Column 2"])
             word_3 = random.choice(self.data["Column 3"])
-            epithets[i + 1] = ("{}, {}, {}".format(word_1, word_2, word_3))
+            epithets[i + 1] = ("Thou {} {} {}!".format(word_1, word_2, word_3))
         return epithets
 
 

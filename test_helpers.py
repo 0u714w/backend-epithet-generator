@@ -19,3 +19,13 @@ class TestHelpers(unittest.TestCase):
         eg = EpithetGenerator()
         result = type(eg.quantity(2))
         self.assertEqual(result, int)
+
+    def test_EpithetGenerator_quantity(self):
+        eg = EpithetGenerator()
+        result = len(eg.quantity(2))
+        self.assertEqual(result, 2)
+
+    def test_EpithetGenerator_quantity_sad(self):
+        eg = EpithetGenerator()
+        result = len(eg.quantity(2))
+        self.assertEqual(result, 3)
