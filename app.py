@@ -18,3 +18,10 @@ def vocabulary():
     v = Vocabulary()
     vocab = v.read_json(path)
     return jsonify(vocab["Column 1"] + vocab["Column 2"] + vocab["Column 3"])
+
+@app.route('/epithets/<quantity>')
+def epithets(quantity):
+    e = EpithetGenerator()
+    epithets = e.quantity(quantity)
+    return jsonify({"epithets": epithets})
+
