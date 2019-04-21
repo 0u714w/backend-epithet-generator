@@ -1,7 +1,7 @@
 #! python3
 
 from flask import Flask, jsonify
-from .helpers import Vocabulary, EpithetGenerator
+from helpers import Vocabulary, EpithetGenerator
 import os
 from random import randint
 
@@ -30,7 +30,6 @@ def generate_epithets_by_quantity(quantity):
 
 @app.route('/random')
 def generate_random_number_epithets():
-    # random = int(randint(1, 101))
     e = EpithetGenerator()
     epithets = e.quantity(randint(1, 101))
     return jsonify(epithets)

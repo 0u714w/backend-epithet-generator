@@ -10,6 +10,8 @@ pytest-flask = "*"
 flask = "*"
 python-dotenv = "*"
 json = "*"
+flask-testing = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.7"
