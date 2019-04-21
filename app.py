@@ -1,7 +1,7 @@
 #! python3
 
 from flask import Flask, jsonify
-from helpers import Vocabulary, EpithetGenerator
+from backend_epithet_generator.helpers import Vocabulary, EpithetGenerator
 import os
 from random import randint
 
