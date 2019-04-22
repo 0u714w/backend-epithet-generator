@@ -13,6 +13,7 @@ class Vocabulary:
         with open(path, mode=mode) as handle:
             return json.load(handle)
 
+data = Vocabulary.read_json(path)
 
 class EpithetGenerator:
 
@@ -20,17 +21,18 @@ class EpithetGenerator:
         self.data = Vocabulary.read_json(path)
 
     def one_random_word(self):
-        word_1 = random.choice(self.data["Column 1"])
-        word_2 = random.choice(self.data["Column 2"])
-        word_3 = random.choice(self.data["Column 3"])
+
+        word_1 = random.choice(data["Column 1"])
+        word_2 = random.choice(data["Column 2"])
+        word_3 = random.choice(data["Column 3"])
         return "Thou {} {} {}!".format(word_1, word_2, word_3)
 
     def quantity(self, quantity):
         epithets = {}
         for i in range((int(quantity))):
-            word_1 = random.choice(self.data["Column 1"])
-            word_2 = random.choice(self.data["Column 2"])
-            word_3 = random.choice(self.data["Column 3"])
+            word_1 = random.choice(data["Column 1"])
+            word_2 = random.choice(data["Column 2"])
+            word_3 = random.choice(data["Column 3"])
             epithets[i + 1] = ("Thou {} {} {}!".format(word_1, word_2, word_3))
         return epithets
 

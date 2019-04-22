@@ -1,31 +1,34 @@
 import unittest
-from helpers import Vocabulary, EpithetGenerator
+from backend_epithet_generator.helpers import Vocabulary, EpithetGenerator
+
+data = Vocabulary.read_json("resources/data.json")
+epithet = EpithetGenerator.one_random_word(data)
+quantity = EpithetGenerator.quantity(data, 5)
 
 
 class TestHelpers(unittest.TestCase):
 
     def test_read_json(self):
-        self.assertEqual(Vocabulary.read_json("resources/data.json"), Vocabulary.read_json("resources/data.json"))
+        assert isinstance(data, dict)
+        assert "artless" in data["Column 1"]
+        assert len(data.keys()) == 3
 
     def test_read_json_sad(self):
-        self.assertEqual(Vocabulary.read_json("resources/data.json"), "json")
+        assert isinstance(data, int)
+        assert len(data.keys()) == 5
 
     def test_EpithetGenerator_type(self):
-        eg = EpithetGenerator()
-        result = type(eg.quantity(2))
-        self.assertEqual(result, dict)
-
+        assert len(epithet.split(" ")) == 4
+        assert isinstance(epithet, str)
+    #
     def test_EpithetGenerator_type_sad(self):
-        eg = EpithetGenerator()
-        result = type(eg.quantity(2))
-        self.assertEqual(result, int)
+        assert len(epithet.split(" ")) == 3
+        assert isinstance(epithet, dict)
 
     def test_EpithetGenerator_quantity(self):
-        eg = EpithetGenerator()
-        result = len(eg.quantity(2))
-        self.assertEqual(result, 2)
-
+        assert isinstance(quantity, dict)
+        assert len(quantity) == 5
+    #
     def test_EpithetGenerator_quantity_sad(self):
-        eg = EpithetGenerator()
-        result = len(eg.quantity(2))
-        self.assertEqual(result, 3)
+        assert isinstance(quantity, list)
+        assert len(quantity) == 4
