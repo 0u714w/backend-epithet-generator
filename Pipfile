@@ -9,7 +9,6 @@ pytest-flask = "*"
 [packages]
 flask = "*"
 python-dotenv = "*"
-json = "*"
 flask-testing = "*"
 pytest = "*"
 
